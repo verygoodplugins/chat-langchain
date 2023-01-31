@@ -43,11 +43,11 @@ def chat(inp, history, agent):
     return history, history
 
 
-block = gr.Blocks(css=".gradio-container {background-color: lightgray}")
+block = gr.Blocks(css=".gradio-container {background-color: lightgray} .chat-message a { text-decoration: underline; font-weight: bold; }")
 
 with block:
     with gr.Row():
-        gr.Markdown("<h3><center>LangChain AI</center></h3>")
+        gr.Markdown("<h3><center>WP Fusion AI Support</center></h3>")
 
         openai_api_key_textbox = gr.Textbox(
             placeholder="Paste your OpenAI API key (sk-...)",
@@ -68,16 +68,17 @@ with block:
 
     gr.Examples(
         examples=[
-            "What are agents?",
-            "How do I summarize a long document?",
-            "What types of memory exist?",
+            "What is WP Fusion used for?",
+            "What is a CRM?",
+            "How do I install WP Fusion?",
+            "Why aren't my webhooks being received?",
         ],
         inputs=message,
     )
 
     gr.HTML(
         """
-    This simple application is an implementation of ChatGPT but over an external dataset (in this case, the LangChain documentation)."""
+    This simple application is an implementation of ChatGPT but over an external dataset (in this case, the WP Fusion documentation)."""
     )
 
     gr.HTML(
@@ -96,4 +97,5 @@ with block:
         outputs=[agent_state],
     )
 
+#block.launch(debug=True,share=True)
 block.launch(debug=True)
